@@ -49,5 +49,5 @@ WantedBy=multi-user.target
 ```
 # Warning
 
-The PWM frequency is fairly high, because in my hardware setup the connected mains-power module ("Kemo ???" ) only measures the duty cycle and is not actually trying to switch the mains voltage at that frequency. It's just a PFC(phase fired controller) with a control input that understands duty cycles. 
+The PWM frequency is fairly high, because in my hardware setup the connected mains-power module ("Kemo M240") only measures the duty cycle and is not actually trying to switch the mains voltage at that frequency. It's just a PFC(phase fired controller) with a control input that understands duty cycles. 
 That means if you intend to connect the PWM pin to something less fancy like a solid state relay, you may want to lower the frequency to the lowest value that your smartmeter can still compute an average over (probably something around 5Hz), inorder to minimize feeding distorted currents to the grid or in the worst case creating radio interference. 
