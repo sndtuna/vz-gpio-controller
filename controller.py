@@ -37,10 +37,10 @@ was_settings_change_request = False # global variable to signal that last http r
 
 html_root = """
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Lastregler</title>
+    <title>Load Controller</title>
   </head>
   <body>
 {html_controller_state}
@@ -49,30 +49,30 @@ html_root = """
 </html>
 """
 html_controller_state = """
-    <h2>Lastregler</h2>
-    Aktuelle Leistung: {estimated_output_power_watts}W <br><br>
-    <h4>Dateninput zeitabstaende statistik</h4>
+    <h2>Load Controller</h2>
+    Current power: {estimated_output_power_watts}W <br><br>
+    <h4>Input data time period statistics</h4>
     max:    {elapsed_time_history_max} <br>
     min:    {elapsed_time_history_min} <br>
     median: {elapsed_time_history_median} <br><br>
-    rohdaten: {elapsed_time_history} <br><br><br>
+    rawdata: {elapsed_time_history} <br><br><br>
 """
 html_settings_form = """
-    <h4>Einstellungen:</h4>
+    <h4>Settings:</h4>
       <form method="get">
-        <label for="load_rated_watts">Last Nennleistung: ({load_rated_watts}) </label>
+        <label for="load_rated_watts">Load rated power: ({load_rated_watts}) </label>
         <input type="number" id="load_rated_watts" name="load_rated_watts" min="1"><br><br>
-        <label for="Kp_per_timestep">P-regelung (Kp): ({Kp_per_timestep}) </label>
+        <label for="Kp_per_timestep">P-control (Kp): ({Kp_per_timestep}) </label>
         <input type="number" id="Kp_per_timestep" name="Kp_per_timestep" step="any"><br><br>
-        <label for="Ki_per_timestep">I-regelung (Ki pro zeitschritt): ({Ki_per_timestep}) </label>
+        <label for="Ki_per_timestep">I-control (Ki per timestep): ({Ki_per_timestep}) </label>
         <input type="number" id="Ki_per_timestep" name="Ki_per_timestep" step="any"><br><br>
-        <label for="Kp_per_timestep">D-anteil (Kd): ({Kd_per_timestep}) </label>
+        <label for="Kp_per_timestep">D-component (Kd): ({Kd_per_timestep}) </label>
         <input type="number" id="Kd_per_timestep" name="Kd_per_timestep" step="any"><br><br>
-        <label for="estimated_watt_hours_so_far">Energiezaehler(Wh): ({estimated_watt_hours_so_far}) </label>
+        <label for="estimated_watt_hours_so_far">Energy counter(Wh): ({estimated_watt_hours_so_far}) </label>
         <input type="number" id="estimated_watt_hours_so_far" name="estimated_watt_hours_so_far"><br><br>
         <label for="pwm_clk_div">PWM clock divider: ({pwm_clk_div}) </label>
         <input type="number" id="pwm_clk_div" name="pwm_clk_div" min="0" max="4095"><br><br>
-        <label for="meter_target_watts">Netzbezug Zielwert: ({meter_target_watts}) </label>
+        <label for="meter_target_watts">Grid power draw target: ({meter_target_watts}) </label>
         <input type="number" id="meter_target_watts" name="meter_target_watts"><br><br>
         <input type="submit" value="Submit">
       </form>
